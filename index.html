@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Special Message</title>
+
+  <!-- Local Font -->
+  <style>
+    @font-face {
+      font-family: 'Grape Nuts';
+      src: url('GrapeNuts-Regular.woff2') format('woff2'),
+           url('GrapeNuts-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      overflow: hidden;
+      padding: 40px;
+      box-sizing: border-box;
+      font-family: 'Grape Nuts', sans-serif;
+    }
+
+    /* Music hint */
+    .hint {
+      position: absolute;
+      bottom: 20px;
+      font-size: 14px;
+      opacity: 0.5;
+      letter-spacing: 1px;
+    }
+
+    /* Text content */
+    .content {
+      max-width: 800px;
+      font-size: 32px;
+      line-height: 1.6;
+    }
+
+    .content p, .signature {
+      opacity: 0;
+      animation: fadeInUp 3s ease forwards; /* slower fade-in */
+    }
+
+    .content p:nth-child(1) { animation-delay: 0.5s; }
+    .content p:nth-child(2) { animation-delay: 3s; }
+    .content p:nth-child(3) { animation-delay: 5.5s; }
+    .signature { 
+      font-size: 36px; 
+      margin-top: 30px;
+      letter-spacing: 1px;
+      text-shadow: 0 0 15px rgba(255,255,255,0.3);
+      animation-delay: 8s;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Optional sparkle particles */
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      animation: float 12s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-500px) translateX(100px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
+  </style>
+</head>
+<body onclick="playMusic()">
+
+  <!-- Music -->
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Message -->
+  <div class="content">
+    <p>
+      I wanted to take a moment to tell you how much you mean to me.  
+      Every day with you feels like a beautiful adventure, and I can’t imagine life without your smile.
+    </p>
+    <p>
+      You bring joy, warmth, and love into every corner of my world.  
+      Being with you has shown me what true happiness really is.
+    </p>
+    <p>
+      Every little moment we share is a treasure, and I look forward to a lifetime of happiness together.
+    </p>
+    <div class="signature">- Eshwar</div>
+  </div>
+
+  <div class="hint">Click anywhere to start music 🎵</div>
+
+  <!-- Particles for subtle sparkle effect -->
+  <div class="particle" style="top: 80%; left: 20%; animation-delay: 0s;"></div>
+  <div class="particle" style="top: 90%; left: 70%; animation-delay: 2s;"></div>
+  <div class="particle" style="top: 75%; left: 50%; animation-delay: 4s;"></div>
+  <div class="particle" style="top: 85%; left: 35%; animation-delay: 1s;"></div>
+  <div class="particle" style="top: 70%; left: 80%; animation-delay: 3s;"></div>
+
+  <script>
+    function playMusic() {
+      const music = document.getElementById("music");
+      music.play();
+      document.body.onclick = null; // only trigger once
+    }
+  </script>
+
+</body>
+</html>
