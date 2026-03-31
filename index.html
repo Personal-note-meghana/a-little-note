@@ -12,27 +12,12 @@
     font-style: normal;
   }
 
-  /* Hide native scrollbars completely */
-  html, body {
-    height: 100%;
-    margin: 0;
-    overflow: hidden; /* no native scroll */
-  }
-
-  #scrollWrapper {
-    height: 100%;
-    overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-  }
-  #scrollWrapper::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* Chrome, Safari, Edge */
-  }
-
   body {
+    margin: 0;
     font-family: 'Grape Nuts', sans-serif;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: white;
+    overflow-y: auto;
     scroll-behavior: smooth;
   }
 
@@ -70,18 +55,19 @@
   #messageContent {
     max-width: 800px;
     font-size: 28px;
-    line-height: 1.8;
+    line-height: 1.8; /* slightly increased for better spacing */
     text-align: center;
-    opacity: 0;
+    opacity: 0;  /* hidden initially */
     transition: opacity 2s ease;
   }
 
   #messageContent.show { opacity: 1; }
 
+  /* Fade animation for paragraphs and signature */
   .fade, .signature {
     opacity: 0;
     transform: translateY(50px);
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* spacing between paragraphs */
   }
 
   .fade.animate, .signature.animate {
@@ -90,10 +76,10 @@
 
   .signature { 
     font-size: 32px; 
-    margin-top: 40px;
+    margin-top: 40px; /* extra space above signature */
     letter-spacing: 1px;
     text-shadow: 0 0 15px rgba(255,255,255,0.3);
-    margin-bottom: 0;
+    margin-bottom: 0; /* no extra space below */
   }
 
   @keyframes fadeInUp {
@@ -118,107 +104,76 @@
     100% { transform: translateY(0) translateX(0); }
   }
 
-  /* Custom scroll bar */
-  #scrollBarContainer {
-    position: fixed;
-    top: 0;
-    right: 20px;
-    width: 8px;
-    height: 100%;
-    background: rgba(255,255,255,0.15);
-    border-radius: 4px;
-    z-index: 50;
-  }
-
-  #scrollBar {
-    width: 100%;
-    height: 5%; /* small hint initially */
-    background: rgba(255,255,255,0.8);
-    border-radius: 4px;
-    transition: height 0.2s ease;
-  }
-
-  /* Responsive adjustments */
+  /* Responsive adjustments for mobile */
   @media (max-width: 600px) {
     #messageContent {
-      font-size: 24px;
-      line-height: 2.2;
+      font-size: 24px;       /* slightly smaller font */
+      line-height: 2.2;      /* more airy spacing */
     }
 
     .fade, .signature {
-      margin-bottom: 50px;
-      transform: translateY(60px);
+      margin-bottom: 50px;   /* bigger spacing between paragraphs */
+      transform: translateY(60px); /* bigger fade-in offset */
     }
 
     .signature {
-      font-size: 28px;
-      margin-top: 60px;
-    }
-
-    #scrollBarContainer {
-      right: 10px;
-      width: 6px;
+      font-size: 28px;       /* slightly smaller signature */
+      margin-top: 60px;      /* more space above signature */
     }
   }
 </style>
 </head>
 <body>
 
-<!-- Scroll wrapper -->
-<div id="scrollWrapper">
-  <div id="container">
-    <!-- Tap overlay -->
-    <div id="tapOverlay"><h1>Please tap here</h1></div>
+<div id="container">
+  <!-- Tap overlay -->
+  <div id="tapOverlay"><h1>Please tap here</h1></div>
 
-    <!-- Music -->
-    <audio id="music" loop>
-      <source src="music.mp3" type="audio/mpeg">
-    </audio>
+  <!-- Music -->
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 
-    <!-- Message -->
-    <div id="messageContent">
-      <p class="fade" data-delay="0.5s">Hi Meghana,</p>
-      <p class="fade" data-delay="4.5s">
-        Even though we haven’t interacted directly yet, I’ve had the chance to understand a bit about you, 
-        and that has been enough for me to feel that this is worth making an effort for. I am writing to you because I believe some decisions deserve that extra step, especially when there is a possibility of something meaningful.
-      </p>
-      <p class="fade" data-delay="7s">
-        I understand your hesitation about proceeding further, 
-        and I respect your perspective. At the same time, before you arrive at a final decision, I would request you to perhaps give it another thought. 
-      </p>
-      <p class="fade" data-delay="9.5s">
-        The reasons in my mind are clear as to why I feel this could be a good match, and I generally place a lot of thought into my decisions. 
-        If you do choose to reconsider, I would genuinely look forward to it. I also want to assure you of a few things from my side: 
-        I will always treat you with love and respect, I will value your aspirations, and be someone you can count on. And in my life, I generally have the perspective of ‘our family’ and never ‘your family’ and ‘my family’.
-      </p>
-      <p class="fade" data-delay="12s">
-        While your achievements are nothing short of remarkable, my inclination toward you is rooted in something deeper, something more important. It is about the 'before' and 'after' of your success: the choices you made to reach your goals and the way you carry yourself after reaching there. In my eyes, success matters, but it’s the journey that shapes the person, and the summit that reveals who they truly are and i've liked both in your case.
-      </p>
-      <p class="fade" data-delay="14.5s">
-        At this point, since you don’t know me yet, this might sound generic, but it isn’t. I truly mean everything I’ve said in this page. I could try a hundred different ways, and still fall short, but let me put it this way: If you choose to come into my world, I will be for you what my father had always been for my mother, and he's the best I've seen in that regard.
-      </p>
-      <p class="fade" data-delay="17s">
-        If, after considering this, you still feel this is not the right direction for you, I will completely respect your decision and wish you the best. 
-        If it feels like there might be a possibility, I hope for the chance that a conversation could open doors that could mean a lot to both of us.
-        If this resonates with you, you may invite me for a cup of coffee, and I’ll meet you whenever it is convenient for both of us.<br><br>
-        Take your time, and choose what feels best.
-      </p>
-      <div class="signature" data-delay="20s">- Chaitanya</div>
-    </div>
-
-    <!-- Particles -->
-    <div class="particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
-    <div class="particle" style="top: 25%; left: 70%; animation-delay: 2s;"></div>
-    <div class="particle" style="top: 40%; left: 50%; animation-delay: 4s;"></div>
-    <div class="particle" style="top: 55%; left: 35%; animation-delay: 1s;"></div>
-    <div class="particle" style="top: 70%; left: 80%; animation-delay: 3s;"></div>
-    <div class="particle" style="top: 85%; left: 10%; animation-delay: 5s;"></div>
+  <!-- Message -->
+  <div id="messageContent">
+    <p class="fade" data-delay="0.5s">Hi Meghana,</p>
+    <p class="fade" data-delay="4.5s">
+      Even though we haven’t interacted directly yet, I’ve had the chance to understand a bit about you, 
+      and that has been enough for me to feel that this is worth making an effort for. I am writing to you because I believe some decisions deserve that extra step, especially when there is a possibility of something meaningful.
+    </p>
+    <p class="fade" data-delay="7s">
+      I understand your hesitation about proceeding further, 
+      and I respect your perspective. At the same time, before you arrive at a final decision, I would request you to perhaps give it another thought. 
+    </p>
+    <p class="fade" data-delay="9.5s">
+      The reasons in my mind are clear as to why I feel this could be a good match, and I generally place a lot of thought into my decisions. 
+      If you do choose to reconsider, I would genuinely look forward to it. I also want to assure you of a few things from my side: 
+      I will always treat you with love and respect, I will value your aspirations, and be someone you can count on. And in my life, I generally have the perspective of ‘our family’ and never ‘your family’ and ‘my family’.
+    </p>
+    <p class="fade" data-delay="12s">
+      While your achievements are nothing short of remarkable, my inclination toward you is rooted in something deeper, something more important. It is about the 'before' and 'after' of your success: the choices you made to reach your goals and the way you carry yourself after reaching there. In my eyes, success matters, but it’s the journey that shapes the person, and the summit that reveals who they truly are and i've liked both in your case.
+    </p>
+    <p class="fade" data-delay="14.5s">
+      At this point, since you don’t know me yet, this might sound generic, but it isn’t. I truly mean everything I’ve said in this page. I could try a hundred different ways, and still fall short, but let me put it this way: If you choose to come into my world, I will be for you what my father had always been for my mother, and he's the best I've seen in that regard.
+    </p>
+    <p class="fade" data-delay="17s">
+      If, after considering this, you still feel this is not the right direction for you, I will completely respect your decision and wish you the best. 
+      If it feels like there might be a possibility, I hope for the chance that a conversation could open doors that could mean a lot to both of us.
+      If this resonates with you, you may invite me for a cup of coffee, and I’ll meet you whenever it is convenient for both of us.<br>
+      <!-- You can put your custom line here -->
+      <br>
+      Take your time, and choose what feels best.
+    </p>
+    <div class="signature" data-delay="20s">- Chaitanya</div>
   </div>
-</div>
 
-<!-- Custom scroll bar -->
-<div id="scrollBarContainer">
-  <div id="scrollBar"></div>
+  <!-- Particles -->
+  <div class="particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+  <div class="particle" style="top: 25%; left: 70%; animation-delay: 2s;"></div>
+  <div class="particle" style="top: 40%; left: 50%; animation-delay: 4s;"></div>
+  <div class="particle" style="top: 55%; left: 35%; animation-delay: 1s;"></div>
+  <div class="particle" style="top: 70%; left: 80%; animation-delay: 3s;"></div>
+  <div class="particle" style="top: 85%; left: 10%; animation-delay: 5s;"></div>
 </div>
 
 <script>
@@ -226,8 +181,6 @@ const overlay = document.getElementById('tapOverlay');
 const message = document.getElementById('messageContent');
 const music = document.getElementById('music');
 const particles = document.querySelectorAll('.particle');
-const scrollBar = document.getElementById('scrollBar');
-const wrapper = document.getElementById('scrollWrapper');
 
 overlay.addEventListener('click', () => {
   overlay.style.opacity = 0;
@@ -237,6 +190,7 @@ overlay.addEventListener('click', () => {
     particles.forEach(p => p.style.opacity = 1);
     music.play().catch(err => console.log('Music play failed:', err));
 
+    // Trigger paragraph animations
     const elements = message.querySelectorAll('.fade, .signature');
     elements.forEach(el => {
       const delay = el.getAttribute('data-delay') || '0s';
@@ -244,14 +198,6 @@ overlay.addEventListener('click', () => {
       el.classList.add('animate');
     });
   }, 1000);
-});
-
-// Update custom scroll bar
-wrapper.addEventListener('scroll', () => {
-  const scrollTop = wrapper.scrollTop;
-  const scrollHeight = wrapper.scrollHeight - wrapper.clientHeight;
-  const scrollPercent = (scrollTop / scrollHeight) * 100;
-  scrollBar.style.height = Math.max(scrollPercent, 5) + "%"; // minimum hint
 });
 </script>
 
