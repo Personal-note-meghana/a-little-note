@@ -67,18 +67,19 @@
     animation: fadeInUp 3s ease forwards;
   }
 
+  /* Updated animation delays: extra 1s after "Hi Parvati" */
   #messageContent p:nth-child(1) { animation-delay: 0.5s; }
-  #messageContent p:nth-child(2) { animation-delay: 3s; }
-  #messageContent p:nth-child(3) { animation-delay: 5.5s; }
-  #messageContent p:nth-child(4) { animation-delay: 8s; }
-  #messageContent p:nth-child(5) { animation-delay: 10.5s; }
-  #messageContent p:nth-child(6) { animation-delay: 13s; }
+  #messageContent p:nth-child(2) { animation-delay: 4.5s; }  /* +1s added */
+  #messageContent p:nth-child(3) { animation-delay: 7s; }
+  #messageContent p:nth-child(4) { animation-delay: 9.5s; }
+  #messageContent p:nth-child(5) { animation-delay: 12s; }
+  #messageContent p:nth-child(6) { animation-delay: 14.5s; }
   .signature { 
     font-size: 32px; 
     margin-top: 30px;
     letter-spacing: 1px;
     text-shadow: 0 0 15px rgba(255,255,255,0.3);
-    animation-delay: 16s;
+    animation-delay: 17.5s;
   }
 
   @keyframes fadeInUp {
@@ -147,7 +148,7 @@
     <div class="signature">- Chaitanya</div>
   </div>
 
-  <!-- Particles (now spread across full page) -->
+  <!-- Particles (spread across full page) -->
   <div class="particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
   <div class="particle" style="top: 25%; left: 70%; animation-delay: 2s;"></div>
   <div class="particle" style="top: 40%; left: 50%; animation-delay: 4s;"></div>
