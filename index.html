@@ -51,12 +51,13 @@
     letter-spacing: 1px;
   }
 
+  /* Message container */
   #messageContent {
     max-width: 800px;
     font-size: 28px;
     line-height: 1.6;
     text-align: center;
-    opacity: 0;
+    opacity: 0;  /* hidden initially */
     transition: opacity 2s ease;
   }
 
@@ -65,6 +66,10 @@
   /* Fade animation for paragraphs and signature */
   .fade, .signature {
     opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .fade.animate, .signature.animate {
     animation: fadeInUp 3s ease forwards;
   }
 
@@ -96,7 +101,6 @@
     50% { transform: translateY(-500px) translateX(100px); }
     100% { transform: translateY(0) translateX(0); }
   }
-
 </style>
 </head>
 <body>
@@ -112,47 +116,46 @@
 
   <!-- Message -->
   <div id="messageContent">
-    <p class="fade" style="animation-delay: 0.5s;">Hi Meghana,</p>
-    <p class="fade" style="animation-delay: 4.5s;">
+    <p class="fade" data-delay="0.5s">Hi Meghana,</p>
+    <p class="fade" data-delay="4.5s">
       Even though we haven’t interacted directly yet, I’ve had the chance to understand a bit about you, 
       and that has been enough for me to feel that this is worth making an effort for. I say this with sincerity, 
       because I believe some decisions deserve that extra step, especially when there is a possibility of something meaningful.
     </p>
-    <p class="fade" style="animation-delay: 7s;">
+    <p class="fade" data-delay="7s">
       I understand your hesitation about proceeding further, 
       and I respect your perspective. At the same time, before you arrive at a final decision, I would request you to perhaps give it another thought.
     </p>
-    <p class="fade" style="animation-delay: 9.5s;">
+    <p class="fade" data-delay="9.5s">
       The reasons in my mind are clear as to why I feel this could be a good match, and I generally place a lot of thought into my decisions. 
       If you do choose to reconsider, I would genuinely look forward to it. I also want to assure you of a few things from my side: 
       I will always treat you with respect, I will value your aspirations, and the person you are. And in my life, I generally have the perspective of ‘our family’ and never ‘your family’ and ‘my family’.
     </p>
-    <p class="fade" style="animation-delay: 12s;">
+    <p class="fade" data-delay="12s">
       While your achievements are nothing short of remarkable, my inclination toward you is rooted in something deeper. 
       It is about the 'before' and 'after' of your success: the choices you made to reach that position and the way you carry yourself after reaching there.
     </p>
-    <p class="fade" style="animation-delay: 14.5s;">
+    <p class="fade" data-delay="14.5s">
       At this point, since you don’t know me yet, this might sound generic, but it isn’t. I mean every single word I’ve said here. I could try in a hundred different ways, 
       but let me just put it like this: If you choose to come into my world, I will be for you what my father had always been for my mother, and he's the best I've seen in that regard.
     </p>
-    <p class="fade" style="animation-delay: 17s;">
+    <p class="fade" data-delay="17s">
       If, after considering this, you still feel this is not the right direction for you, I will completely respect your decision and wish you the very best. 
       I’m simply hoping for the chance that a real conversation might offer more clarity than we expect. 
       If this resonates with you, you may invite me for a cup of coffee, and I will meet you as per our mutual convenience.
       <br><br>
       Take your time, and feel free to decide in a way that feels best.
     </p>
-    <div class="signature" style="animation-delay: 20s;">- Chaitanya</div>
+    <div class="signature" data-delay="20s">- Chaitanya</div>
   </div>
 
-  <!-- Particles (spread across full page) -->
+  <!-- Particles -->
   <div class="particle" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
   <div class="particle" style="top: 25%; left: 70%; animation-delay: 2s;"></div>
   <div class="particle" style="top: 40%; left: 50%; animation-delay: 4s;"></div>
   <div class="particle" style="top: 55%; left: 35%; animation-delay: 1s;"></div>
   <div class="particle" style="top: 70%; left: 80%; animation-delay: 3s;"></div>
   <div class="particle" style="top: 85%; left: 10%; animation-delay: 5s;"></div>
-
 </div>
 
 <script>
@@ -168,6 +171,14 @@ overlay.addEventListener('click', () => {
     message.classList.add('show');
     particles.forEach(p => p.style.opacity = 1);
     music.play().catch(err => console.log('Music play failed:', err));
+
+    // Trigger paragraph animations
+    const elements = message.querySelectorAll('.fade, .signature');
+    elements.forEach(el => {
+      const delay = el.getAttribute('data-delay') || '0s';
+      el.style.animationDelay = delay;
+      el.classList.add('animate');
+    });
   }, 1000);
 });
 </script>
