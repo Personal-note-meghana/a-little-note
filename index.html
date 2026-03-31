@@ -62,24 +62,17 @@
 
   #messageContent.show { opacity: 1; }
 
-  #messageContent p, .signature {
+  /* Fade animation for paragraphs and signature */
+  .fade, .signature {
     opacity: 0;
     animation: fadeInUp 3s ease forwards;
   }
 
-  /* Updated animation delays */
-  #messageContent p:nth-child(1) { animation-delay: 0.5s; }
-  #messageContent p:nth-child(2) { animation-delay: 4.5s; }
-  #messageContent p:nth-child(3) { animation-delay: 7s; }
-  #messageContent p:nth-child(4) { animation-delay: 9.5s; }
-  #messageContent p:nth-child(5) { animation-delay: 12s; }  /* new paragraph */
-  #messageContent p:nth-child(6) { animation-delay: 14.5s; } /* "If, after considering this..." paragraph */
   .signature { 
     font-size: 32px; 
     margin-top: 30px;
     letter-spacing: 1px;
     text-shadow: 0 0 15px rgba(255,255,255,0.3);
-    animation-delay: 17.5s;
   }
 
   @keyframes fadeInUp {
@@ -119,38 +112,37 @@
 
   <!-- Message -->
   <div id="messageContent">
-    <p>Hi Meghana,</p>
-    <p>
+    <p class="fade" style="animation-delay: 0.5s;">Hi Meghana,</p>
+    <p class="fade" style="animation-delay: 4.5s;">
       Even though we haven’t interacted directly yet, I’ve had the chance to understand a bit about you, 
       and that has been enough for me to feel that this is worth making an effort for. I say this with sincerity, 
       because I believe some decisions deserve that extra step, especially when there is a possibility of something meaningful.
     </p>
-    <p>
+    <p class="fade" style="animation-delay: 7s;">
       I understand your hesitation about proceeding further, 
       and I respect your perspective. At the same time, before you arrive at a final decision, I would request you to perhaps give it another thought.
     </p>
-    <p>
+    <p class="fade" style="animation-delay: 9.5s;">
       The reasons in my mind are clear as to why I feel this could be a good match, and I generally place a lot of thought into my decisions. 
       If you do choose to reconsider, I would genuinely look forward to it. I also want to assure you of a few things from my side: 
       I will always treat you with respect, I will value your aspirations, and the person you are. And in my life, I generally have the perspective of ‘our family’ and never ‘your family’ and ‘my family’.
     </p>
-    <p>
+    <p class="fade" style="animation-delay: 12s;">
       While your achievements are nothing short of remarkable, my inclination toward you is rooted in something deeper. 
       It is about the 'before' and 'after' of your success: the choices you made to reach that position and the way you carry yourself after reaching there.
     </p>
-    <!-- NEW PARAGRAPH -->
-    <p>
+    <p class="fade" style="animation-delay: 14.5s;">
       At this point, since you don’t know me yet, this might sound generic, but it isn’t. I mean every single word I’ve said here. I could try in a hundred different ways, 
       but let me just put it like this: If you choose to come into my world, I will be for you what my father had always been for my mother, and he's the best I've seen in that regard.
     </p>
-    <p>
+    <p class="fade" style="animation-delay: 17s;">
       If, after considering this, you still feel this is not the right direction for you, I will completely respect your decision and wish you the very best. 
       I’m simply hoping for the chance that a real conversation might offer more clarity than we expect. 
       If this resonates with you, you may invite me for a cup of coffee, and I will meet you as per our mutual convenience.
       <br><br>
       Take your time, and feel free to decide in a way that feels best.
     </p>
-    <div class="signature">- Chaitanya</div>
+    <div class="signature" style="animation-delay: 20s;">- Chaitanya</div>
   </div>
 
   <!-- Particles (spread across full page) -->
