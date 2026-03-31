@@ -17,12 +17,13 @@
       margin: 0;
       font-family: 'Grape Nuts', sans-serif;
       height: 100vh;
-      overflow: hidden;
+      /* overflow: hidden removed to enable scrolling */
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start; /* allow scrolling from top */
+      padding-top: 50px;       /* small top padding */
     }
 
     /* Fullscreen tap overlay */
@@ -40,7 +41,7 @@
       flex-direction: column;
       z-index: 10;
       opacity: 1;
-      transition: opacity 0.5s ease; /* faster fade out */
+      transition: opacity 0.5s ease;
     }
 
     #tapOverlay h1 {
@@ -54,11 +55,12 @@
     #messageContent {
       display: none;
       max-width: 800px;
-      font-size: 32px;
+      font-size: 28px;
       line-height: 1.6;
       text-align: center;
       opacity: 0;
       transition: opacity 2s ease;
+      padding: 0 20px; /* horizontal padding for readability */
     }
 
     #messageContent.show {
@@ -74,12 +76,15 @@
     #messageContent p:nth-child(1) { animation-delay: 0.5s; }
     #messageContent p:nth-child(2) { animation-delay: 3s; }
     #messageContent p:nth-child(3) { animation-delay: 5.5s; }
+    #messageContent p:nth-child(4) { animation-delay: 8s; }
+    #messageContent p:nth-child(5) { animation-delay: 10.5s; }
+    #messageContent p:nth-child(6) { animation-delay: 13s; }
     .signature { 
-      font-size: 36px; 
+      font-size: 32px; 
       margin-top: 30px;
       letter-spacing: 1px;
       text-shadow: 0 0 15px rgba(255,255,255,0.3);
-      animation-delay: 8s;
+      animation-delay: 16s;
     }
 
     @keyframes fadeInUp {
@@ -120,18 +125,33 @@
 
   <!-- Message -->
   <div id="messageContent">
+    <p>Hi Meghana,</p>
     <p>
-      I wanted to take a moment to tell you how much you mean to me.  
-      Every day with you feels like a beautiful adventure, and I can’t imagine life without your smile.
+      Even though we haven’t interacted directly yet, I’ve had the chance to understand a bit about you, 
+      and that has been enough for me to feel that this is worth making an effort for. I say this with sincerity, 
+      because I believe some decisions deserve that extra step, especially when there is a possibility of something meaningful.
     </p>
     <p>
-      You bring joy, warmth, and love into every corner of my world.  
-      Being with you has shown me what true happiness really is.
+      I’ve given this some thought, and I felt it was important to share this with you. I understand your hesitation about proceeding further, 
+      and I respect your perspective. At the same time, before you arrive at a final decision, I would request you to perhaps give it another thought.
     </p>
     <p>
-      Every little moment we share is a treasure, and I look forward to a lifetime of happiness together.
+      The reasons in my mind are clear as to why I feel this could be a good match, and I generally place a lot of thought into my decisions. 
+      If you do choose to reconsider, I would genuinely look forward to it. And if we do move forward, I also want to assure you of a few things from my side: 
+      I will always treat you with respect, I will value your aspirations, and the person you are. And in my life, I generally have the perspective of ‘our family’ and never ‘your family’ and ‘my family’.
     </p>
-    <div class="signature">- Eshwar</div>
+    <p>
+      While your achievements are nothing short of remarkable, my inclination toward you is rooted in something deeper. 
+      It is about the 'before' and 'after' of your success: the choices you made to reach that position and the way you carry yourself after reaching there.
+    </p>
+    <p>
+      If, after considering this, you still feel this is not the right direction for you, I will completely respect your decision and wish you the very best. 
+      I’m simply hoping for the chance to show you that a real conversation might offer more clarity than we expect. 
+      If this resonates with you, you may invite me for a cup of coffee, and I will meet you as per our mutual convenience.
+      <br><br>
+      Take your time, and feel free to decide in a way that feels best to you.
+    </p>
+    <div class="signature">- Chaitanya</div>
   </div>
 
   <!-- Particles -->
